@@ -13,7 +13,7 @@ const TIMEINTERVAL = 1000;
 
 refs.startBtn.addEventListener('click', () => {
   toggleBtns(refs.stopBtn, refs.startBtn);
-  switchBobyBgColorLoop(TIMEINTERVAL);
+  switchBobyBgColor(TIMEINTERVAL);
 });
 
 refs.stopBtn.addEventListener('click', () => {
@@ -27,7 +27,8 @@ function toggleBtns(...buttons) {
   );
 }
 
-function switchBobyBgColorLoop(TIMEINTERVAL) {
+function switchBobyBgColor(TIMEINTERVAL) {
+  body.style.backgroundColor = getRandomHexColor();
   timerId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, TIMEINTERVAL);
@@ -37,7 +38,9 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 function playMusic() {
-  let audio = new Audio('Psychedelic Universe Original Mix ! Psychedelic Universe.mp3');
+  const audio = new Audio(
+    '/Psychedelic Universe Original Mix ! Psychedelic Universe.mp3'
+  );
   audio.play();
 }
 
