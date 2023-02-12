@@ -12,7 +12,8 @@ const refs = {
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
   startBtn: document.querySelector('[data-start]'),
-  myAudioElement: document.querySelector('audio'),
+  myAudioElement: document.querySelector('[data-success]'),
+  myAudioElementError: document.querySelector('[data-error]'),
 };
 
 refs.startBtn.addEventListener('click', startCountdown);
@@ -73,6 +74,7 @@ function checkFutureDate(userTime) {
       position: 'center-top',
     });
     refs.startBtn.disabled = true;
+    refs.myAudioElementError.play();
 
     return;
   }
