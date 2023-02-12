@@ -14,6 +14,7 @@ const refs = {
   startBtn: document.querySelector('[data-start]'),
   myAudioElement: document.querySelector('[data-success]'),
   myAudioElementError: document.querySelector('[data-error]'),
+  myAudioElementAlarm: document.querySelector('[data-alarm]'),
 };
 
 refs.startBtn.addEventListener('click', startCountdown);
@@ -43,6 +44,8 @@ function startCountdown() {
     //stop interval on timeout
     if (timeDelta < 1000) {
       clearInterval(intervalId);
+      refs.myAudioElement.pause();
+      refs.myAudioElementAlarm.play();
       console.log('time is out');
       Notify.failure('time is out', {
         timeout: 2000,
