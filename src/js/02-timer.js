@@ -12,6 +12,7 @@ const refs = {
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
   startBtn: document.querySelector('[data-start]'),
+  myAudioElement: document.querySelector('audio'),
 };
 
 refs.startBtn.addEventListener('click', startCountdown);
@@ -49,6 +50,7 @@ function startCountdown() {
       });
     }
   }, 1000);
+  refs.myAudioElement.play();
 }
 function addLeadingZero(value) {
   return value.toString().padStart(2, '0');
