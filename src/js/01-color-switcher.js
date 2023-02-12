@@ -1,6 +1,7 @@
 import '../css/common.css';
 
 const body = document.querySelector('body');
+const myAudioElement = document.querySelector('audio');
 
 const refs = {
   startBtn: document.querySelector('[data-start]'),
@@ -39,4 +40,3 @@ function switchBobyBgColor(TIMEINTERVAL) {
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-const myAudioElement = document.querySelector('audio');
